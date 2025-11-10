@@ -1,4 +1,3 @@
-import re
 from src.models.sqlite.interfaces.people_repository import PeopleRepositoryInterface
 from src.models.sqlite.entities.people import PeopleTable
 
@@ -15,9 +14,8 @@ class PersonFinderController:
         person = self.__people_repository.get_person(person_id)
         if not person:
             raise Exception("Pessoa não encontrada")
-        
         return person
-    
+
     def __format_response(self, person: PeopleTable) -> dict:
         return {
             "data": {
