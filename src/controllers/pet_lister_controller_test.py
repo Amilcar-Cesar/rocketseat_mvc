@@ -4,8 +4,8 @@ from .pet_lister_controller import PetListerController
 class MockPetsRepository:
     def list_pets(self):
         return [
-            PetsTable(name="Fluffy", type="Cat", id=4),
-            PetsTable(name="Buddy", type="Dog", id=47),
+            PetsTable(name="Fluffy", type="cat", id=4),
+            PetsTable(name="Buddy", type="dog", id=47),
         ]
 
 def test_list_pets():
@@ -17,8 +17,8 @@ def test_list_pets():
             "type": "Pets",
             "count": 2,
             "attributes": [
-                { "name": "Fluffy", "id": 4 },
-                { "name": "Buddy", "id": 47 }
+                { "name": "Fluffy", "id": 4, "type": "cat" },
+                { "name": "Buddy", "id": 47, "type": "dog" }
             ]
         }
     }
