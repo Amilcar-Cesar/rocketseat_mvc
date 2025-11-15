@@ -1,10 +1,11 @@
-from src.models.sqlite.interfaces.people_repository import PeopleRepositoryInterface
 import re
+from src.models.sqlite.interfaces.people_repository import PeopleRepositoryInterface
+from .interfaces.person_creator_controller import PersonCreatorControllerInterface
 
-class PersonCreatorController:
+class PersonCreatorController(PersonCreatorControllerInterface):
     def __init__(self, people_repository: PeopleRepositoryInterface) -> None:
         self.__people_repository = people_repository
-        
+
     def create(self, person_info: dict) -> dict:
         first_name = person_info["first_name"]
         last_name = person_info["last_name"]
@@ -34,4 +35,3 @@ class PersonCreatorController:
                 "attributes": person_info
             }
         }
-    
